@@ -8,6 +8,7 @@ export const styles = StyleSheet.create({
 
     },
     hand: {
+      flex: .65,
       flexDirection: 'row' ,
       justifyContent: 'center',
       marginBottom: 20,

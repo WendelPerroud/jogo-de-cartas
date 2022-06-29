@@ -16,9 +16,18 @@ const Game = ({ route }) => {
     const deck = await getCards(deckId, 2);
     setCards(deck.cards);
     setBaralho(deck.remaining)
-    setPontos(verificarPontos(deck.cards, 0))
-    
   };
+
+  useEffect (()=> {
+    if(cards == null) return
+      const verificar = [...cards];
+      verificar.sort((a,b)=>{
+        if (a.value === 'ACE') return 1;
+        if (a !== 'ACE') return -1;
+        return 0
+      })
+      setPontos(verificarPontos(verificar, 0))
+  }, [cards]);
 
   useEffect(() => {
     get();
@@ -35,7 +44,6 @@ const Game = ({ route }) => {
       const draw = await getCards(deckId, 1);
       setCards( prevCards => [...cards , ...draw.cards]);
       setBaralho(draw.remaining)
-      setPontos(verificarPontos(draw.cards , pontos))  
       
   }
 
@@ -44,17 +52,16 @@ const Game = ({ route }) => {
     setBaralho(null)
     setDesabilitaBtn(false)
     await shuffleDeck(deckId)
-    get()
-    
+    get() 
  }
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>O jogo do 21</Text>
     <View style={styles.hand}>
-      {cards && cards.map((card) =>
-       <Image source={{uri: card.image}} 
-       style={styles.carta}  />)}
+      {cards && cards.map((card , index) =>
+       <Image key={index} source={{uri: card.image}} 
+       style={styles.carta} />)}
     </View>
     <View style={styles.pontos}>
     <Text style={styles.pontos} >Pontuação</Text>
