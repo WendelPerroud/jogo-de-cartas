@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
 
     },
     hand: {
-      flex: .65,
+      flex: .55,
       flexDirection: 'row' ,
       justifyContent: 'center',
       marginBottom: 20,
@@ -19,16 +19,25 @@ export const styles = StyleSheet.create({
       textAlign: "center",
       fontWeight: "bold",
       color: 'red',
+      marginTop: 10,
       marginBottom: 20 ,
+      textShadowRadius: 5,
+      textShadowColor:"gold",
+      
 
     },
-    pontos:{
-      fontSize: 32,
-      color: 'white',
+    pontos_view:{
       alignItems: 'center',
+      justifyContent:'center',
       backgroundColor:'gray',
-      padding: 5
-      
+      padding: 5,
+      borderRadius: 20,
+      borderColor:"white",
+      borderWidth:3      
+    },
+    pontos_text:{
+      fontSize: 32,
+      color: 'white',    
     },
     carta:{
       width: 200 ,

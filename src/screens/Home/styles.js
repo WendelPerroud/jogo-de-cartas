@@ -16,4 +16,9 @@ export const styles = StyleSheet.create({
       marginTop: 20 ,
 
     },
+    btnPosition:{
+      flex: 1.3, 
+      justifyContent: "center", 
+      paddingTop: "25%"
+    },
   });
